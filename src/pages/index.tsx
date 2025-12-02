@@ -119,19 +119,71 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>MythFlair AI</title>
-        <meta
-          name="description"
-          content="Create amazing AI-generated stories, art, and mythical adventures using MythFlair AI."
-        />
-        <meta property="og:title" content="MythFlair AI" />
-        <meta
-          property="og:description"
-          content="Create amazing AI art & legendary stories with AI."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/thumbnail.png" />
-      </Head>
+  {/* Basic SEO */}
+  <title>MythFlair AI – Free AI Image Generator & Voice Studio</title>
+  <meta
+    name="description"
+    content="MythFlair AI is a creative studio for generating AI images, anime, fantasy art and text-to-speech audio. Use our free AI image generator and Voice Studio online."
+  />
+  <meta
+    name="robots"
+    content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+  />
+  <link rel="canonical" href="https://ai.mythflair.com/" />
+
+  {/* Open Graph (Facebook, LinkedIn, etc.) */}
+  <meta property="og:title" content="MythFlair AI – Free AI Image Generator & Voice Studio" />
+  <meta
+    property="og:description"
+    content="Turn your ideas into instant visuals and immersive audio with MythFlair AI. Generate images, anime, fantasy art and realistic voices right in your browser."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ai.mythflair.com/" />
+  <meta
+    property="og:image"
+    content="https://ai.mythflair.com/thumbnail.png"
+  />
+  <meta property="og:site_name" content="MythFlair AI" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MythFlair AI – Free AI Image Generator & Voice Studio" />
+  <meta
+    name="twitter:description"
+    content="Create AI-generated images and lifelike voices using MythFlair AI's free tools."
+  />
+  <meta
+    name="twitter:image"
+    content="https://ai.mythflair.com/thumbnail.png"
+  />
+
+  {/* Optional: keywords (not very important, but harmless) */}
+  <meta
+    name="keywords"
+    content="AI image generator, free AI art, anime AI, fantasy AI, text to speech, AI voice, MythFlair"
+  />
+
+  {/* JSON-LD structured data for Google & Bing */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "MythFlair AI",
+        url: "https://ai.mythflair.com/",
+        description:
+          "MythFlair AI is an online creative studio for AI-generated images, art, and text-to-speech audio.",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://ai.mythflair.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      }),
+    }}
+  />
+</Head>
+
 
       <div
         data-theme={theme}
