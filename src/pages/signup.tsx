@@ -1,6 +1,6 @@
 // pages/signup.tsx
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
+
 import { supabase } from "../lib/supabaseClient";
 
 export default function SignUpPage() {
