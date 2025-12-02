@@ -43,8 +43,8 @@ export default function SignUpPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-black text-slate-50">
-      {/* Navbar on dark background */}
-      <Navbar user={null} onSignOut={() => {}} />
+     
+    
 
       <main className="flex-1 flex items-center justify-center px-4 py-10">
         <div className="w-full max-w-md">
