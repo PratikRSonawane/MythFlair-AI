@@ -574,7 +574,7 @@ export default function AdminStudio() {
                   MythFlair Studio (Admin)
                 </h1>
                 <p className="text-xs text-purple-600 dark:text-purple-400 font-medium tracking-wide uppercase">
-                  Bytez • Imagen 4 • Admin Only
+                  High Quality • Fast • Admin Only
                 </p>
               </div>
             </Link>
@@ -660,7 +660,7 @@ export default function AdminStudio() {
                     Ready to Create
                   </h3>
                   <p className="text-neutral-500 dark:text-neutral-500 text-sm">
-                    Describe your idea, pick a style and model. Bytez + Imagen will turn it
+                    Describe your idea, pick a style and model will turn it
                     into pixels.
                   </p>
                 </div>
@@ -677,7 +677,7 @@ export default function AdminStudio() {
             </div>
 
             <div className="mt-4 text-center text-xs text-neutral-500 dark:text-neutral-600">
-              Powered by Bytez • Models: Imagen 4 Fast / Ultra (configurable)
+              AI  Powered • Models: Create Image Fast / Ultra (configurable)
             </div>
           </div>
 
@@ -902,18 +902,17 @@ export default function AdminStudio() {
               </h2>
             </div>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
-              This admin-only studio runs on Bytez with Google Imagen 4 series. All
-              generation calls are authenticated through Supabase and locked to your
-              admin account, so only you can spend your credits or use private models.
-              Models and styles are defined in simple config arrays, so you can easily
-              add more later.
+              This admin-only studio runs only for admin for developing and Reasearch with G 4 series. All
+              generation calls are authenticated through Supabase and locked to
+              admin account, so only Admin can use private models.
+              
             </p>
             <div className="flex flex-wrap gap-4 text-xs text-neutral-500 dark:text-neutral-500">
               <span className="bg-neutral-200 dark:bg-neutral-900 px-3 py-1 rounded-full">
                 Admin-only Access
               </span>
               <span className="bg-neutral-200 dark:bg-neutral-900 px-3 py-1 rounded-full">
-                Configurable Bytez Models
+                Configurable Models
               </span>
               <span className="bg-neutral-200 dark:bg-neutral-900 px-3 py-1 rounded-full">
                 Prompt Style Presets
