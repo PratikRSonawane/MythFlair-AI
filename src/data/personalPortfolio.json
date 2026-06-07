@@ -34,7 +34,7 @@
         "Next.js",
         "React",
         "TypeScript",
-        "CSS Modulesd"
+        "CSS"
       ],
       "highlight": "",
       "liveUrl": "https://chat.mythflair.com/",
@@ -50,6 +50,23 @@
       ],
       "highlight": "",
       "liveUrl": "https://ai.mythflair.com/personal/protfollio",
+      "imageUrl": ""
+    },
+    {
+      "id": "project-1780822559737",
+      "title": "AI Tools",
+      "description": "Free AI Tools",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "css",
+        "node.js",
+        "supabase",
+        "google auth",
+        "next.js"
+      ],
+      "highlight": "",
+      "liveUrl": "https://ai.mythflair.com",
       "imageUrl": ""
     }
   ],
@@ -80,12 +97,12 @@
     },
     {
       "id": "certificate-1780767733129",
-      "title": "",
+      "title": "C language",
       "issuer": "",
       "issuedAt": "",
       "imageUrl": "https://drive.google.com/file/d/1eM4SBfW44ZTsIUY2d9V8TavNSyxSyBki/view",
       "credentialUrl": ""
     }
   ],
-  "updatedAt": "2026-06-07T05:47:23.895Z"
+  "updatedAt": "2026-06-07T08:57:56.968Z"
 }
