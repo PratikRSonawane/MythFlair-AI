@@ -1,0 +1,79 @@
+{
+  "profile": {
+    "name": "Pratik Ratnakar Sonawane",
+    "role": "Full Stack Developer",
+    "location": "India",
+    "tagline": "I build modern, responsive web apps with React, Node.js, and TypeScript.",
+    "about": "This portfolio page is built inside your MythFlair project and is open to new opportunities, showcasing your profile, projects, and certificates without adding a database.",
+    "email": "pratik.sonawane.dev@gmail.com",
+    "photoUrl": "https://drive.google.com/file/d/13CHClF3vJTsKFVBzjEy9w2G6BOD1RgLA/view?usp=drive_link",
+    "githubUrl": "https://github.com/PratikRSonawane",
+    "linkedinUrl": "https://www.linkedin.com/in/pratik-sonawane-31093b386/",
+    "resumeUrl": "",
+    "skills": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "REST APIs",
+      "Git",
+      "Vercel",
+      "java",
+      "python"
+    ]
+  },
+  "projects": [
+    {
+      "id": "personal-portfolio",
+      "title": "AI ChatBot",
+      "description": "A public portfolio route inside an existing Next.js app, inspired by a modern developer showcase layout.",
+      "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "CSS Modules"
+      ],
+      "highlight": "",
+      "liveUrl": "https://chat.mythflair.com/",
+      "imageUrl": ""
+    }
+  ],
+  "certificates": [
+    {
+      "id": "typescript-fundamentals",
+      "title": "Python for ML",
+      "issuer": "Add Your Issuer",
+      "issuedAt": "2026",
+      "imageUrl": "https://drive.google.com/file/d/1yeIlnN2CbCZQwwdKY07992XIfEmq0RMD/view",
+      "credentialUrl": ""
+    },
+    {
+      "id": "react-advanced",
+      "title": "Gen AI Tools",
+      "issuer": "Add Your Issuer",
+      "issuedAt": "2026",
+      "imageUrl": "https://drive.google.com/file/d/1Ww-MXDN8_hA0TC8xrHuoB60-pdrkMX13/view",
+      "credentialUrl": ""
+    },
+    {
+      "id": "certificate-1780767181396",
+      "title": "Content Creation",
+      "issuer": "Adobe",
+      "issuedAt": "",
+      "imageUrl": "https://drive.google.com/file/d/1J7sB9RYn3LDdCwzRCDGt54ALKvf9CKpo/view",
+      "credentialUrl": ""
+    },
+    {
+      "id": "certificate-1780767733129",
+      "title": "",
+      "issuer": "",
+      "issuedAt": "",
+      "imageUrl": "https://drive.google.com/file/d/1eM4SBfW44ZTsIUY2d9V8TavNSyxSyBki/view",
+      "credentialUrl": ""
+    }
+  ],
+  "updatedAt": "2026-06-06T17:43:17.544Z"
+}

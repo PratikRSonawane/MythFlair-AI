@@ -120,10 +120,10 @@ export default function HomePage() {
     <>
       <Head>
   {/* Basic SEO */}
-  <title>MythFlair AI – Free AI Image Generator & Voice Studio</title>
+  <title>MythFlair AI – Free AI Image Generator</title>
   <meta
     name="description"
-    content="MythFlair AI is a creative studio for generating AI images, anime, fantasy art and text-to-speech audio. Use our free AI image generator and Voice Studio online."
+    content="MythFlair AI is a creative studio for generating AI images, anime, and fantasy art. Use our free AI image generator online."
   />
   <meta
     name="robots"
@@ -132,10 +132,10 @@ export default function HomePage() {
   <link rel="canonical" href="https://ai.mythflair.com/" />
 
   {/* Open Graph (Facebook, LinkedIn, etc.) */}
-  <meta property="og:title" content="MythFlair AI – Free AI Image Generator & Voice Studio" />
+  <meta property="og:title" content="MythFlair AI – Free AI Image Generator" />
   <meta
     property="og:description"
-    content="Turn your ideas into instant visuals and immersive audio with MythFlair AI. Generate images, anime, fantasy art and realistic voices right in your browser."
+    content="Turn your ideas into instant visuals with MythFlair AI. Generate images, anime, and fantasy art right in your browser."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ai.mythflair.com/" />
@@ -147,10 +147,10 @@ export default function HomePage() {
 
   {/* Twitter Card */}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MythFlair AI – Free AI Image Generator & Voice Studio" />
+  <meta name="twitter:title" content="MythFlair AI – Free AI Image Generator" />
   <meta
     name="twitter:description"
-    content="Create AI-generated images and lifelike voices using MythFlair AI's free tools."
+    content="Create AI-generated images with MythFlair AI's free tools."
   />
   <meta
     name="twitter:image"
@@ -160,7 +160,7 @@ export default function HomePage() {
   {/* Optional: keywords (not very important, but harmless) */}
   <meta
     name="keywords"
-    content="AI image generator, free AI art, anime AI, fantasy AI, text to speech, AI voice, MythFlair"
+    content="AI image generator, free AI art, anime AI, fantasy AI, MythFlair"
   />
 
   {/* JSON-LD structured data for Google & Bing */}
@@ -173,7 +173,7 @@ export default function HomePage() {
         name: "MythFlair AI",
         url: "https://ai.mythflair.com/",
         description:
-          "MythFlair AI is an online creative studio for AI-generated images, art, and text-to-speech audio.",
+          "MythFlair AI is an online creative studio for AI-generated images and art.",
         potentialAction: {
           "@type": "SearchAction",
           target: "https://ai.mythflair.com/?q={search_term_string}",
@@ -838,125 +838,6 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-            </section>
-
-            {/* TTS Section */}
-            <section style={{ marginBottom: 64 }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  marginBottom: 18,
-                }}
-              >
-                <h2
-                  style={{
-                    fontSize: 24,
-                    fontWeight: 700,
-                    margin: 0,
-                  }}
-                >
-                  Voice Studio
-                </h2>
-                <span
-                  style={{
-                    fontSize: 11,
-                    padding: "4px 8px",
-                    background: "#2dd4bf",
-                    color: "#0f172a",
-                    borderRadius: 4,
-                    fontWeight: 700,
-                  }}
-                >
-                  NEW
-                </span>
-              </div>
-
-              <Link
-                href="/TTS"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <div
-                  className="glass-card"
-                  style={{
-                    width: "100%",
-                    minHeight: 160,
-                    borderRadius: 20,
-                    border: "1px solid rgba(45, 212, 191, 0.4)",
-                    display: "flex",
-                    flexDirection: "row",
-                    flexWrap: "wrap",
-                    alignItems: "center",
-                    padding: 20,
-                    gap: 20,
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div style={{ flex: 1, zIndex: 1, minWidth: 240 }}>
-                    <h3
-                      style={{
-                        fontSize: 20,
-                        fontWeight: 700,
-                        marginBottom: 8,
-                      }}
-                    >
-                      AI Powered Text-to-Speech
-                    </h3>
-                    <p
-                      style={{
-                        fontSize: 13,
-                        color: "var(--text-muted)",
-                        marginBottom: 14,
-                      }}
-                    >
-                      Transform your written stories into immersive audio
-                      experiences. Select from multiple lifelike voices and
-                      export your audio instantly.
-                    </p>
-                    <span
-                      style={{
-                        padding: "8px 18px",
-                        background: "#2dd4bf",
-                        color: "#134e4a",
-                        borderRadius: 999,
-                        fontWeight: 700,
-                        fontSize: 13,
-                        display: "inline-block",
-                      }}
-                    >
-                      Open Voice Studio &rarr;
-                    </span>
-                  </div>
-
-                  <div
-                    style={{
-                      flex: 1,
-                      height: 90,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 5,
-                      opacity: 0.8,
-                      minWidth: 180,
-                    }}
-                  >
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                      <div
-                        key={i}
-                        style={{
-                          width: 5,
-                          height: Math.random() * 60 + 20 + "%",
-                          background: "#2dd4bf",
-                          borderRadius: 4,
-                          animation: `pulse 1s infinite ${i * 0.1}s`,
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </Link>
             </section>
 
             {/* Gallery / Showcase Section */}
