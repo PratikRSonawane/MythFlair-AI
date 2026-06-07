@@ -337,8 +337,7 @@ export default function PersonalPortfolioPage({ data }: Props) {
                 <span className={styles.sectionLabel}>Skills</span>
                 <h2 className={styles.sectionTitle}>Tech Stack</h2>
                 <p className={styles.sectionText}>
-                  A simple overview of the technologies and tools currently
-                  featured in this portfolio.
+                  
                 </p>
               </div>
             </div>
@@ -360,8 +359,7 @@ export default function PersonalPortfolioPage({ data }: Props) {
                 <span className={styles.sectionLabel}>Projects</span>
                 <h2 className={styles.sectionTitle}>Featured Work</h2>
                 <p className={styles.sectionText}>
-                  Inspired by the reference portfolio layout, but focused only
-                  on your public work and personal achievements.
+                  
                 </p>
               </div>
 
