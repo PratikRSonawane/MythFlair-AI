@@ -1,413 +1,268 @@
 import Head from "next/head";
 import Link from "next/link";
-
-type HomeTool = {
-  title: string;
-  label: string;
-  description: string;
-  href?: string;
-  status: "Live" | "Preview" | "Soon";
-  accent: string;
-  panel: string;
-};
-
-const primaryTools: HomeTool[] = [
-  {
-    title: "Pollinations AI",
-    label: "Free provider",
-    description:
-      "Connect Pollinations once, then choose chat, image, video, TTS, or embedding tools.",
-    href: "/pollinations-ai",
-    status: "Live",
-    accent: "#0f766e",
-    panel: "POL",
-  },
-  {
-    title: "Creative Studio Hub",
-    label: "Image, video, text",
-    description:
-      "Open the focused hub page that was previously the MythFlair home screen.",
-    href: "/creative-studio",
-    status: "Live",
-    accent: "#1d4ed8",
-    panel: "HUB",
-  },
-  {
-    title: "Video Generator",
-    label: "Prompt to video",
-    description:
-      "A future workspace for short AI videos, motion prompts, and render history.",
-    status: "Soon",
-    accent: "#9a3412",
-    panel: "VID",
-  },
-  {
-    title: "Text Generator",
-    label: "Writing tools",
-    description:
-      "A future area for captions, stories, product copy, summaries, and prompts.",
-    status: "Soon",
-    accent: "#6d28d9",
-    panel: "TXT",
-  },
-];
-
-const freeProviders: HomeTool[] = [
-  {
-    title: "Pollinations AI",
-    label: "Images, chat, TTS, video",
-    description:
-      "A free provider gateway with BYOP connection and separate tool choices.",
-    href: "/pollinations-ai",
-    status: "Live",
-    accent: "#0f766e",
-    panel: "POL",
-  },
-  {
-    title: "More Free Providers",
-    label: "Provider slots",
-    description:
-      "Add other free AI providers here as the project grows.",
-    status: "Soon",
-    accent: "#64748b",
-    panel: "+",
-  },
-];
-
-const designTools: HomeTool[] = [
-  {
-    title: "UI Design Ideas",
-    label: "Layouts",
-    description:
-      "Generate page directions, sections, color systems, and app layout concepts.",
-    status: "Preview",
-    accent: "#be123c",
-    panel: "UI",
-  },
-
-  {
-    title: "Prompt Library",
-    label: "Reusable prompts",
-    description:
-      "Save repeatable prompt patterns for images, videos, writing, and UI work.",
-    status: "Soon",
-    accent: "#047857",
-    panel: "LIB",
-  },
-];
-
-function ToolCard({ tool }: { tool: HomeTool }) {
-  const statusStyles: Record<HomeTool["status"], string> = {
-    Live: "border-[#0f766e]/30 bg-[#dff5ef] text-[#0f5f58]",
-    Preview: "border-[#1d4ed8]/30 bg-[#e0e7ff] text-[#1d4ed8]",
-    Soon: "border-[#9a3412]/25 bg-[#fff1e8] text-[#9a3412]",
-  };
-
-  const statusDot: Record<HomeTool["status"], string> = {
-    Live: "bg-[#0f766e]",
-    Preview: "bg-[#1d4ed8]",
-    Soon: "bg-[#9a3412]",
-  };
-
-  const content = (
-    <article
-      className={`group relative flex h-full min-h-[260px] flex-col overflow-hidden rounded-xl border border-black/10 bg-white p-5 shadow-sm transition will-change-transform ${
-        tool.href
-          ? "hover:-translate-y-1 hover:shadow-2xl"
-          : "opacity-75"
-      }`}
-    >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        aria-hidden="true"
-        style={{
-          background: `radial-gradient(600px circle at 10% -10%, ${tool.accent}33, transparent 40%), radial-gradient(500px circle at 110% 0%, ${tool.accent}22, transparent 35%)`,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-1 opacity-90"
-        style={{ background: `linear-gradient(90deg, ${tool.accent}99, transparent)` }}
-      />
-      <div
-        className="mb-7 flex h-24 items-end justify-between rounded bg-[#f3f0e8] p-4"
-        style={{ color: tool.accent }}
-      >
-        <span className="text-3xl font-black">{tool.panel}</span>
-        <span className="grid h-11 w-11 grid-cols-2 gap-1 rounded-sm border-2 border-current p-1">
-          <span className="rounded-sm bg-current opacity-30" />
-          <span className="rounded-sm bg-current opacity-70" />
-          <span className="rounded-sm bg-current opacity-70" />
-          <span className="rounded-sm bg-current opacity-30" />
-        </span>
-      </div>
-
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <p
-          className="text-xs font-black uppercase tracking-[0.14em]"
-          style={{ color: tool.accent }}
-        >
-          {tool.label}
-        </p>
-        <span
-          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-black uppercase tracking-[0.1em] ${statusStyles[tool.status]}`}
-        >
-          <span
-            className={`h-2 w-2 rounded-full ${statusDot[tool.status]}`}
-            aria-hidden="true"
-          />
-          {tool.status}
-        </span>
-      </div>
-
-      <h3 className="text-2xl font-black leading-tight text-[#111713]">
-        {tool.title}
-      </h3>
-      <p className="mt-3 flex-1 text-sm leading-6 text-[#5a665e]">
-        {tool.description}
-      </p>
-      <p className="mt-6 text-sm font-black uppercase tracking-[0.12em] text-[#111713]">
-        {tool.href ? "Open" : "Coming soon"}
-      </p>
-    </article>
-  );
-
-  return (
-    <Link
-      href={tool.href ?? "#"}
-      aria-disabled={!tool.href}
-      onClick={(event) => {
-        if (!tool.href) {
-          event.preventDefault();
-        }
-      }}
-      className={`h-full ${!tool.href ? "cursor-default" : ""}`}
-    >
-      {content}
-    </Link>
-  );
-}
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function HomePage() {
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      if (data?.user) {
+        setUser(data.user);
+      }
+    });
+  }, []);
+
   return (
     <>
       <Head>
-        <title>MythFlair AI - Free AI Tools</title>
-        <meta name="theme-color" content="#0f766e" />
+        <title>MythFlair AI</title>
+        <meta name="theme-color" content="#f8fafc" />
         <meta
           name="description"
-          content="MythFlair AI is a centralized home for free AI image tools, creative generation, UI design ideas, and upcoming text and video tools."
+          content="MythFlair AI is a creative sandbox to express your imagination through AI image synthesis, natural language generation, audio models, and visual motion."
         />
-        <meta property="og:title" content="MythFlair AI - Free AI Tools" />
+        <meta property="og:title" content="MythFlair AI" />
         <meta
           property="og:description"
-          content="Explore MythFlair AI tools for image generation, creative workflows, UI design ideas, and future text and video generation."
+          content="Express your imagination through AI image synthesis, natural language generation, and voice tools on MythFlair AI."
         />
         <meta property="og:image" content="/mythflair-logo.png" />
       </Head>
 
-      <main className="relative min-h-screen bg-[#f7f4ed] text-[#111713]">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(900px circle at 15% 15%, rgba(14,165,233,0.18), transparent 55%), radial-gradient(900px circle at 85% 10%, rgba(29,78,216,0.18), transparent 50%), radial-gradient(1100px circle at 70% 80%, rgba(190,18,60,0.14), transparent 55%), radial-gradient(900px circle at 10% 85%, rgba(15,118,110,0.14), transparent 55%)",
-          }}
-        />
-        <section className="relative overflow-hidden border-b border-black/10">
-          <div className="absolute inset-0">
-            <img
-              src="/mythflair-logo.png"
-              alt=""
-              className="h-full w-full object-cover opacity-[0.06]"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(247,244,237,0.98),rgba(247,244,237,0.9)_48%,rgba(225,238,232,0.76))]" />
-          </div>
+      <main className="relative min-h-screen overflow-hidden bg-gradient-to-tr from-[#f8fafc] via-[#f5f3ff] to-[#f0fdf4] text-slate-800 font-sans selection:bg-violet-500/20 selection:text-violet-900">
+        {/* Soft, vibrant colorful blur blobs for a distinct light gradient theme */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#e2e8f080_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f080_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+          <div className="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-fuchsia-400/15 blur-[120px] animate-pulse" style={{ animationDuration: '10s' }} />
+          <div className="absolute right-[-5%] top-[10%] h-[600px] w-[600px] rounded-full bg-cyan-400/15 blur-[140px] animate-pulse" style={{ animationDuration: '14s' }} />
+          <div className="absolute bottom-[-10%] left-[20%] h-[500px] w-[500px] rounded-full bg-violet-400/10 blur-[130px] animate-pulse" style={{ animationDuration: '12s' }} />
+        </div>
 
-          <div className="relative mx-auto flex min-h-[86vh] max-w-7xl flex-col px-5 py-5 sm:px-8">
-            <header className="flex items-center justify-between gap-4">
-              <Link href="/" className="flex items-center gap-3">
-                <img
-                  src="/mythflair-logo.png"
-                  alt="MythFlair"
-                  className="h-11 w-11 rounded-md object-cover shadow-sm"
-                />
+        <section className="relative border-b border-slate-200/60">
+          <div className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:py-8">
+            <header className="flex items-center justify-between gap-4 rounded-3xl border border-slate-200/80 bg-white/60 p-4 shadow-[0_8px_32px_rgba(15,23,42,0.04)] backdrop-blur-xl transition-all">
+              <Link href="/" className="flex items-center gap-3 group">
+                <div className="relative overflow-hidden rounded-2xl border border-slate-200 transition-transform duration-300 group-hover:scale-105">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-violet-500 to-fuchsia-500 opacity-15" />
+                  <img
+                    src="/mythflair-logo.png"
+                    alt="MythFlair"
+                    className="h-11 w-11 object-cover relative z-10"
+                  />
+                </div>
                 <div>
-                  <p className="text-lg font-black leading-none">
-                    MythFlair AI
-                  </p>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6d64]">
-                    Free Tools
+                  <p className="font-black leading-none text-slate-900 tracking-wide">MythFlair AI</p>
+                  <p className="mt-1.5 text-[9px] font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
+                    Creative Suite
                   </p>
                 </div>
               </Link>
 
-              <div className="flex items-center gap-2">
-                <Link
-                  href="/creative-studio"
-                  className="hidden rounded-md border border-black/15 bg-white/70 px-4 py-2 text-sm font-black transition hover:bg-white sm:inline-flex"
-                >
-                  Studio Hub
-                </Link>
-                <Link
-                  href="/pollinations-ai"
-                  className="rounded-md bg-[#111713] px-4 py-2 text-sm font-black text-white transition hover:bg-[#0f766e]"
-                >
-                  Providers
-                </Link>
+              <div className="flex items-center gap-2.5">
+                {/* Dynamic Sign In / Profile button - Only option in top-right corner */}
+                {user ? (
+                  <Link
+                    href="/profile"
+                    className="rounded-2xl border border-emerald-500/20 bg-emerald-50 px-4 py-2 text-xs sm:text-sm font-bold text-emerald-700 hover:bg-emerald-100 transition-all cursor-pointer"
+                  >
+                    👤 Profile
+                  </Link>
+                ) : (
+                  <Link
+                    href="/signin"
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-2 text-xs sm:text-sm font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition-all hover:scale-[1.02] cursor-pointer"
+                  >
+                    Sign In
+                  </Link>
+                )}
               </div>
             </header>
 
-            <div className="grid flex-1 items-center gap-10 py-12 lg:grid-cols-[1fr_0.9fr]">
-              <div className="max-w-3xl">
-                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#0f766e]/30 bg-[#dff5ef] px-3 py-1 text-sm font-black text-[#0f5f58] shadow-sm">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#0f766e]" aria-hidden="true" />
-                  Universal free AI tools
-                </p>
-                <h1 className="text-5xl font-black leading-[0.96] tracking-normal sm:text-6xl lg:text-7xl">
-                  <span className="bg-[linear-gradient(90deg,#0f766e_0%,#1d4ed8_45%,#be123c_100%)] bg-clip-text text-transparent">
-                    One home
+            <div className="grid gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+              <div className="max-w-3xl space-y-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-violet-750 shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+                  Creative Workspace
+                </div>
+                <h1 className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl text-slate-900">
+                  Express your imagination with{" "}
+                  <span className="bg-gradient-to-r from-violet-650 to-fuchsia-600 bg-clip-text text-transparent">
+                    MythFlair AI.
                   </span>
-                  <span className="block">for creative AI work.</span>
                 </h1>
-                <p className="mt-6 max-w-2xl text-base leading-7 text-[#526057] sm:text-lg">
-                  Start by choosing a free provider, then pick the tool you
-                  want from that provider: chat, images, video, TTS, embeddings,
-                  and more as MythFlair grows.
+                <p className="text-base leading-8 text-slate-600 sm:text-lg">
+                  Welcome to MythFlair AI, an open environment designed to help you experiment with machine learning generators. Craft photo-realistic visuals, synthesize human-like voice recordings, write structured copy, or generate motion sequences.
                 </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="/pollinations-ai"
-                    className="rounded-md bg-[#111713] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_16px_34px_rgba(17,23,19,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0f766e]"
-                  >
-                    Open Free Providers
-                  </Link>
-                  <Link
-                    href="/creative-studio"
-                    className="rounded-md border border-black/15 bg-white/75 px-5 py-3 text-center text-sm font-black uppercase tracking-[0.12em] transition hover:bg-white"
-                  >
-                    Open Studio Hub
-                  </Link>
-                </div>
               </div>
 
-              <div className="rounded-md border border-black/10 bg-white p-4 shadow-2xl shadow-black/10">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {["Providers", "Chat", "Image", "TTS"].map((item, index) => (
-                    <div
-                      key={item}
-                      className={`min-h-36 rounded-md p-4 ${
-                        index === 0
-                          ? "bg-[#14342c] text-[#dff5ef]"
-                          : "bg-[#f0ece2] text-[#19211c]"
-                      }`}
-                    >
-                      <p className="text-xs font-black uppercase tracking-[0.14em] opacity-70">
-                        Tool {index + 1}
-                      </p>
-                      <p className="mt-6 text-3xl font-black">{item}</p>
-                      <p className="mt-2 text-sm font-bold opacity-75">
-                        {index === 0 ? "Start here" : "Provider tools"}
-                      </p>
+              {/* The Single AI Engine Box - ONLY place where providers are chosen */}
+              <div className="relative group">
+                <div className="absolute -inset-0.5 rounded-[32px] bg-gradient-to-r from-violet-400 to-fuchsia-400 opacity-15 blur-xl transition duration-500 group-hover:opacity-25" />
+                <div className="relative rounded-[28px] border border-slate-200/80 bg-white/70 p-6 backdrop-blur-xl shadow-xl space-y-4">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
+                      System Setup
+                    </p>
+                    <h2 className="mt-1 text-2xl font-black text-slate-900">
+                      Choose AI Engine
+                    </h2>
+                    <p className="text-xs text-slate-500 mt-1">
+                      Select a connected engine to power your current generation session.
+                    </p>
+                  </div>
+
+                  {/* Provider 1: Pollinations AI */}
+                  <div className="rounded-2xl border border-slate-200/60 bg-white/90 p-4 shadow-sm hover:border-slate-300 transition duration-300">
+                    <div className="flex items-start justify-between gap-3 flex-wrap sm:flex-nowrap">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2.5 rounded-xl bg-violet-50 border border-violet-100 text-violet-600">
+                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-slate-900">Pollinations AI</h3>
+                          <p className="text-xs text-slate-500 mt-0.5">Vibrant images, chat models, and voice</p>
+                        </div>
+                      </div>
+                      <Link
+                        href="/pollinations-ai"
+                        className="w-full sm:w-auto text-center rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-2.5 text-xs font-black text-white shadow hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+                      >
+                        Connect & Open
+                      </Link>
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Provider 2: Puter AI */}
+                  <div className="rounded-2xl border border-slate-200/60 bg-white/90 p-4 shadow-sm hover:border-slate-300 transition duration-300">
+                    <div className="flex items-start justify-between gap-3 flex-wrap sm:flex-nowrap">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2.5 rounded-xl bg-fuchsia-50 border border-fuchsia-100 text-fuchsia-600">
+                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-slate-900">Puter AI</h3>
+                          <p className="text-xs text-slate-500 mt-0.5">High-speed native cloud model hub</p>
+                        </div>
+                      </div>
+                      <Link
+                        href="/puter-ai"
+                        className="w-full sm:w-auto text-center rounded-xl bg-gradient-to-r from-violet-650 to-fuchsia-600 px-4 py-2.5 text-xs font-black text-white shadow hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+                      >
+                        Connect & Open
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-          <div className="mb-8 max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-[#0f766e]">
-              Free providers
+        {/* Informational Sections describing AI technology */}
+        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-violet-600">
+              Understanding AI
             </p>
-            <h2 className="mt-2 text-3xl font-black sm:text-4xl">
-              Choose a provider first
+            <h2 className="mt-2 text-3xl font-black text-slate-900 sm:text-4xl">
+              What can you build on MythFlair?
             </h2>
-            <p className="mt-3 text-sm leading-6 text-[#5a665e]">
-              Provider pages handle the connection popup first, then show the
-              tools available inside that provider.
+            <p className="mt-3 text-slate-650 leading-7">
+              Discover how generative AI architectures process instructions to generate visual, textual, and acoustic outputs.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {freeProviders.map((tool) => (
-              <ToolCard key={tool.title} tool={tool} />
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-5 pb-14 sm:px-8">
-          <div className="mb-8 max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-[#1d4ed8]">
-              Main areas
-            </p>
-            <h2 className="mt-2 text-3xl font-black sm:text-4xl">
-              Tool categories
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[#5a665e]">
-              These cards show the broader direction of the app. The provider
-              section is the main entry point for free connected tools.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {primaryTools.map((tool) => (
-              <ToolCard key={tool.title} tool={tool} />
-            ))}
-          </div>
-        </section>
-
-        {/* UI and creator extras moved to a more colorful bottom CTA section above */}
-        {/* (removed duplicate old section) */}
-        <section className="border-t border-black/10 bg-[#ebe7dc]">
-          <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-          <div className="mb-8 max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-[#be123c]">
-              UI and creator extras
-            </p>
-            <h2 className="mt-2 text-3xl font-black sm:text-4xl">
-              Design helpers and portfolio tools
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[#5a665e]">
-              This gives the project room to become more than an image
-              generator: design ideas, public portfolio, and reusable prompt
-              systems can all live here.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {designTools.map((tool) => (
-              <ToolCard key={tool.title} tool={tool} />
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-2xl border border-black/10 bg-white/70 p-6 shadow-sm sm:flex-row sm:items-center">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-[#1d4ed8]">
-                Quick start
-              </p>
-              <h3 className="mt-2 text-xl font-black">Pick a provider, then choose the tool</h3>
-              <p className="mt-2 text-sm leading-6 text-[#5a665e]">
-                Everything on MythFlair starts with the provider connection popup — then your tools appear.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:items-end">
-              <Link
-                href="/pollinations-ai"
-                className="rounded-md bg-[#111713] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_16px_34px_rgba(17,23,19,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0f766e]"
-              >
-                Explore Providers
-              </Link>
-              <div className="text-xs font-bold uppercase tracking-[0.12em] text-[#5f6d64]">
-                Live: Pollinations • Soon: Video & Text
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Card 1: AI Image Synthesis */}
+            <article className="group relative rounded-[28px] border border-slate-200/80 bg-white/50 p-8 shadow-sm hover:shadow-md transition-all duration-350">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <rect x="3" y="3" width="18" height="18" rx="4"/>
+                    <circle cx="9" cy="9" r="2.5"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 18l6-6 6 6m4-4l2 2m-2-2l-4-4-4 4"/>
+                  </svg>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl font-bold text-slate-900">AI Image Generation</h3>
+                  <p className="text-sm leading-7 text-slate-600">
+                    AI image generation translates descriptive prompts into graphics, digital art, or photographic assets. Using advanced diffusion networks, the AI begins with structured random noise and iteratively refines it, matching lighting cues, stylistic context, and camera properties to compile the final render.
+                  </p>
+                  <p className="text-xs font-semibold text-blue-700 bg-blue-50/80 inline-block px-3 py-1.5 rounded-xl">
+                    Use Cases: Digital art, concept prototyping, illustration rendering
+                  </p>
+                </div>
               </div>
-            </div>
+            </article>
+
+            {/* Card 2: AI Text Generation */}
+            <article className="group relative rounded-[28px] border border-slate-200/80 bg-white/50 p-8 shadow-sm hover:shadow-md transition-all duration-350">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl bg-fuchsia-50 border border-fuchsia-100 text-fuchsia-600">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                  </svg>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl font-bold text-slate-900">AI Text Generation</h3>
+                  <p className="text-sm leading-7 text-slate-600">
+                    Natural language generation leverages Large Language Models (LLMs) to construct contextual responses. By estimating word probabilities based on millions of textual relationships, LLMs compose creative scripts, compile structured reports, assist in editing copy, or troubleshoot coding errors.
+                  </p>
+                  <p className="text-xs font-semibold text-fuchsia-700 bg-fuchsia-50/80 inline-block px-3 py-1.5 rounded-xl">
+                    Use Cases: Writing assistance, interactive chat, logic validation
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            {/* Card 3: AI Text-to-Speech */}
+            <article className="group relative rounded-[28px] border border-slate-200/80 bg-white/50 p-8 shadow-sm hover:shadow-md transition-all duration-350">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl font-bold text-slate-900">AI Speech Synthesis (TTS)</h3>
+                  <p className="text-sm leading-7 text-slate-600">
+                    Text-to-Speech (TTS) models translate written copy into acoustic audio files. Modern speech networks capture emotional cues, sentence pacing, and natural intonation patterns, producing high-fidelity audio streams suitable for narration or vocal feedback.
+                  </p>
+                  <p className="text-xs font-semibold text-emerald-700 bg-emerald-50/80 inline-block px-3 py-1.5 rounded-xl">
+                    Use Cases: Audio narration, vocal output, accessibility rendering
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            {/* Card 4: AI Motion & Video */}
+            <article className="group relative rounded-[28px] border border-slate-200/80 bg-white/50 p-8 shadow-sm hover:shadow-md transition-all duration-350">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-2xl bg-orange-50 border border-orange-100 text-orange-655">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l5-3v10l-5-3v-4zM4 6h10a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" />
+                  </svg>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl font-bold text-slate-900">AI Motion & Video</h3>
+                  <p className="text-sm leading-7 text-slate-600">
+                    Temporal motion networks generate coherent frame sequences to produce short video outputs. The system interpolates pixel shifts and object consistency across timelines, creating smooth transitions, panning sweeps, or environmental motion from static commands.
+                  </p>
+                  <p className="text-xs font-semibold text-orange-700 bg-orange-50/85 inline-block px-3 py-1.5 rounded-xl">
+                    Use Cases: Cinematic loops, motion mockups, storytelling frames
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
     </>
   );
 }
