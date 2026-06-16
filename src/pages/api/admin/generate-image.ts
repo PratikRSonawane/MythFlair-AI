@@ -11,6 +11,11 @@ const bytezKey = process.env.BYTEZ_API_KEY!;
 const supabaseServer = createClient(supabaseUrl, supabaseAnonKey);
 const sdk = new Bytez(bytezKey);
 
+// Build-time provenance fingerprint (not a security feature; helps prove origin)
+const MYTHFLAIR_BUILD_ID =
+  process.env.NEXT_PUBLIC_MYTHFLAIR_BUILD_ID ??
+  "mf_2026_origin";
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -31,6 +36,9 @@ export default async function handler(
       data: { user },
       error: userError,
     } = await supabaseServer.auth.getUser(token);
+
+    // Hidden provenance marker for misuse investigation
+    res.setHeader("x-mythflair-build-id", MYTHFLAIR_BUILD_ID);
 
     if (userError || !user) {
       console.error("getUser error:", userError);
@@ -65,6 +73,8 @@ export default async function handler(
     const finalPrompt = stylePromptAdd
       ? `${prompt}, ${stylePromptAdd}`
       : prompt;
+
+    console.log("[mythflair] generate-image fingerprint:", MYTHFLAIR_BUILD_ID);
 
     const model = sdk.model(modelId);
     const { error, output } = await model.run(finalPrompt);
