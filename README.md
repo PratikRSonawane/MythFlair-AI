@@ -38,11 +38,12 @@ Built with scalability, usability, and modern web performance in mind, MythFlair
 
 ### Image Generation
 
-assets/screenshots/image.png
+![image](https://raw.githubusercontent.com/PratikRSonawane/MythFlair-AI/main/assets/screenshots/image.png)
+
 
 ### Chating Studio
 
-assets/screenshots/chat.png
+![chat](https://raw.githubusercontent.com/PratikRSonawane/MythFlair-AI/main/assets/screenshots/chat.png)
 
 ---
 
