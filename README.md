@@ -179,4 +179,19 @@ Contributions, ideas, and feedback are welcome.
 
 ## 📄 License
 
-MIT License
+This project is licensed under the **MythFlair Personal Use License (Non-Commercial)**.
+
+You are free to:
+✅ Use for personal learning  
+✅ Modify for educational purposes  
+✅ Fork and experiment  
+
+You may NOT:
+❌ Use commercially  
+❌ Sell, sublicense, or monetize this project  
+❌ Deploy as a competing SaaS/product  
+❌ Repackage or redistribute without permission  
+
+Commercial licensing requests: contact me directly.
+
+See the [LICENSE](LICENSE) and [NOTICE](NOTICE) file for details.
