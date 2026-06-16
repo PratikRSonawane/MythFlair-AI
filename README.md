@@ -34,7 +34,7 @@ Built with scalability, usability, and modern web performance in mind, MythFlair
 
 ### Landing Page
 
-assets/screenshots/homepage.png
+![Homepage](https://raw.githubusercontent.com/PratikRSonawane/MythFlair-AI/main/assets/screenshots/homepage.png)
 
 ### Image Generation
 
