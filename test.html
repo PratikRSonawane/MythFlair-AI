@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="test()">Test LLM7</button>
+<pre id="out"></pre>
+
+<script>
+async function test() {
+  const out = document.getElementById("out");
+  out.textContent = "Loading...";
+
+  try {
+    const res = await fetch("https://api.llm7.io/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "devstral-small-2:24b",
+        messages: [
+            {
+      "role": "system",
+      "content": "You are a caring anime girlfriend who speaks warmly and naturally."
+    },
+          {
+            role: "user",
+            content: "Say Hello is you pussy ok from yesterday and can you tell how how yesterday in detail"
+          }
+        ]
+      })
+    });
+
+    const text = await res.text();
+    out.textContent =
+      "Status: " + res.status + "\n\n" + text;
+  } catch (err) {
+    out.textContent = err.toString();
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,360 @@
+.shell {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.dark {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 28%),
+    #07070a;
+  color: #f4f4f5;
+}
+
+.light {
+  background:
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.08), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.05), transparent 24%),
+    #f7f7f3;
+  color: #111113;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 85%);
+  pointer-events: none;
+}
+
+.frame {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 20px 56px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.85fr);
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.kicker, .panelLabel, .statusLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  opacity: 0.72;
+  margin: 0 0 10px;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  line-height: 0.96;
+  margin: 0;
+  max-width: 12ch;
+}
+
+.lead {
+  max-width: 64ch;
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.78;
+}
+
+.heroActions {
+  display: grid;
+  gap: 16px;
+}
+
+.themeToggle, .secondaryButton, .primaryButton {
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font: inherit;
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.togglePill {
+  width: 54px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  padding: 3px;
+  display: inline-flex;
+}
+
+.toggleKnobDark,
+.toggleKnobLight {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: block;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.toggleKnobDark {
+  transform: translateX(22px);
+  background: #f5f5f5;
+}
+
+.toggleKnobLight {
+  background: #111113;
+}
+
+.statusCard, .metricCard, .panel, .previewPanel {
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.16);
+}
+
+.statusCard {
+  padding: 18px;
+}
+
+.statusCard strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.statusCard p,
+.metricCard p,
+.modelCard p,
+.miniNote span,
+.insightBox span,
+.emptyState p,
+.helperText {
+  opacity: 0.72;
+  line-height: 1.5;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.metricCard {
+  padding: 18px;
+}
+
+.metricCard span,
+.miniNote span,
+.insightBox span {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 8px;
+}
+
+.metricCard strong {
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+  gap: 16px;
+}
+
+.panel, .previewPanel {
+  padding: 24px;
+}
+
+.panelHeader, .previewHeader, .modelHeader, .actionRow, .insightBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.panelHeader h2, .previewHeader h2, .modelHeader h3 {
+  margin: 0;
+}
+
+.prompt {
+  width: 100%;
+  resize: vertical;
+  min-height: 160px;
+  margin: 18px 0 22px;
+  border-radius: 22px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  color: inherit;
+  font: inherit;
+  line-height: 1.7;
+}
+
+.modelHeader {
+  margin-bottom: 14px;
+}
+
+.modelGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.modelCard {
+  text-align: left;
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  color: inherit;
+  min-height: 126px;
+}
+
+.modelCardActive {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+  border-color: currentColor;
+}
+
+.modelTopRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.modelTopRow span {
+  font-size: 12px;
+  opacity: 0.72;
+}
+
+.modelCard p {
+  margin: 0;
+}
+
+.actionRow {
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  padding: 14px 22px;
+  background: currentColor;
+  color: color-mix(in srgb, canvas 94%, currentColor 6%);
+  font-weight: 700;
+}
+
+.primaryButton:disabled {
+  opacity: 0.55;
+}
+
+.miniNote {
+  text-align: right;
+}
+
+.previewPanel {
+  display: grid;
+  gap: 18px;
+}
+
+.badge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.previewCanvas {
+  min-height: 500px;
+  border-radius: 28px;
+  border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.emptyState {
+  padding: 36px;
+  text-align: center;
+  max-width: 32ch;
+}
+
+.emptyOrb {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, currentColor, transparent);
+  opacity: 0.15;
+}
+
+.insightBox {
+  padding: 18px 2px 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+}
+
+@media (max-width: 960px) {
+  .hero,
+  .grid,
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .previewCanvas {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .frame {
+    padding: 24px 14px 40px;
+  }
+
+  .panel,
+  .previewPanel,
+  .statusCard,
+  .metricCard {
+    border-radius: 22px;
+  }
+
+  .modelGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .panelHeader,
+  .previewHeader,
+  .modelHeader,
+  .actionRow,
+  .insightBox {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

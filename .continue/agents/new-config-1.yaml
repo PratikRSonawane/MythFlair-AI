@@ -1,0 +1,16 @@
+# This is an example configuration file
+name: AISure Config
+version: 1.0.0
+schema: v1
+
+models:
+  - name: AISure
+    provider: openai
+    model: aisure-default
+    apiKey: aisure_n92sN7sl1UZwcgmslxBkvtOrSOJJcMv7cBiP1NqV
+    apiBase: https://api.aisure.uk/v1
+    roles:
+      - chat
+      - edit
+      - apply
+# To learn more, see the full config.yaml reference: https://docs.continue.dev/reference

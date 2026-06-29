@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SubNP Image Test</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+input,select,button{
+    width:350px;
+    padding:10px;
+    margin:8px;
+    font-size:16px;
+}
+button{
+    cursor:pointer;
+}
+img{
+    max-width:512px;
+    margin-top:20px;
+    border-radius:10px;
+}
+pre{
+    text-align:left;
+    background:#111;
+    padding:10px;
+    overflow:auto;
+    max-width:700px;
+    margin:auto;
+}
+</style>
+</head>
+<body>
+
+<h2>SubNP Free Image API Test</h2>
+
+<input id="prompt" placeholder="Enter prompt..."
+value="A futuristic cyberpunk city at sunset">
+
+<br>
+
+<select id="model">
+    <option value="flux">flux</option>
+    <option value="turbo">turbo</option>
+    <option value="magic">magic</option>
+</select>
+
+<br>
+
+<button onclick="generate()">Generate</button>
+
+<h3>Status</h3>
+<div id="status"></div>
+
+<h3>Image</h3>
+<img id="image">
+
+<h3>Raw Response</h3>
+<pre id="json"></pre>
+
+<script>
+
+async function generate(){
+
+    document.getElementById("status").innerHTML="Generating...";
+    document.getElementById("image").src="";
+    document.getElementById("json").textContent="";
+
+    const prompt=document.getElementById("prompt").value;
+    const model=document.getElementById("model").value;
+
+    try{
+
+        const res=await fetch("https://subnp.com/api/free/generate",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                prompt,
+                model
+            })
+
+        });
+
+        const data=await res.json();
+
+        document.getElementById("json").textContent=
+            JSON.stringify(data,null,2);
+
+        document.getElementById("status").innerHTML="Finished";
+
+        // Adjust these if the response uses different field names.
+        if(data.image){
+            document.getElementById("image").src=data.image;
+        }else if(data.url){
+            document.getElementById("image").src=data.url;
+        }else if(data.data?.image){
+            document.getElementById("image").src=data.data.image;
+        }
+
+    }catch(err){
+
+        document.getElementById("status").innerHTML=
+            "Error: "+err;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

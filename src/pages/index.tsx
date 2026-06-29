@@ -113,7 +113,78 @@ export default function HomePage() {
                     </p>
                   </div>
 
-                  {/* Provider 1: Pollinations AI */}
+
+                  {/* Provider 1: image */}
+                  <div className="rounded-2xl border border-slate-200/60 bg-white/90 p-4 shadow-sm hover:border-slate-300 transition duration-300">
+                    <div className="flex items-start justify-between gap-3 flex-wrap sm:flex-nowrap">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2.5 rounded-xl bg-violet-50 border border-violet-100 text-violet-600">
+                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-slate-900">Image</h3>
+                          <p className="text-xs text-slate-500 mt-0.5">Vibrant images, chat models, and voice</p>
+                        </div>
+                      </div>
+                      <Link
+                        href="/image"
+                        className="w-full sm:w-auto text-center rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-2.5 text-xs font-black text-white shadow hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+                      >
+                        Connect & Open
+                      </Link>
+                    </div>
+                  </div>
+
+                   {/* Provider 2: Puter AI */}
+                  <div className="rounded-2xl border border-slate-200/60 bg-white/90 p-4 shadow-sm hover:border-slate-300 transition duration-300">
+                    <div className="flex items-start justify-between gap-3 flex-wrap sm:flex-nowrap">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2.5 rounded-xl bg-fuchsia-50 border border-fuchsia-100 text-fuchsia-600">
+                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-slate-900">Chat</h3>
+                          <p className="text-xs text-slate-500 mt-0.5">High-speed native cloud model hub</p>
+                        </div>
+                      </div>
+                      <Link
+                        href="/chat"
+                        className="w-full sm:w-auto text-center rounded-xl bg-gradient-to-r from-violet-650 to-fuchsia-600 px-4 py-2.5 text-xs font-black text-white shadow hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+                      >
+                        Connect & Open
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Provider 3: low q image */}
+                  <div className="rounded-2xl border border-slate-200/60 bg-white/90 p-4 shadow-sm hover:border-slate-300 transition duration-300">
+                    <div className="flex items-start justify-between gap-3 flex-wrap sm:flex-nowrap">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2.5 rounded-xl bg-violet-50 border border-violet-100 text-violet-600">
+                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-slate-900">low quality unlimited image</h3>
+                          <p className="text-xs text-slate-500 mt-0.5">Vibrant images, chat models, and voice</p>
+                        </div>
+                      </div>
+                      <Link
+                        href="/low-polly"
+                        className="w-full sm:w-auto text-center rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-2.5 text-xs font-black text-white shadow hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+                      >
+                        Connect & Open
+                      </Link>
+                    </div>
+                  </div>
+
+
+                  {/* Provider 4: Pollinations AI */}
                   <div className="rounded-2xl border border-slate-200/60 bg-white/90 p-4 shadow-sm hover:border-slate-300 transition duration-300">
                     <div className="flex items-start justify-between gap-3 flex-wrap sm:flex-nowrap">
                       <div className="flex items-center gap-3">
@@ -136,7 +207,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Provider 2: Puter AI */}
+                  {/* Provider 5: Puter AI */}
                   <div className="rounded-2xl border border-slate-200/60 bg-white/90 p-4 shadow-sm hover:border-slate-300 transition duration-300">
                     <div className="flex items-start justify-between gap-3 flex-wrap sm:flex-nowrap">
                       <div className="flex items-center gap-3">
